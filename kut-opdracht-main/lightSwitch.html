@@ -13,10 +13,21 @@
     <!-- <div style="display:flex; justify-content: center; align-items: center;width:100%; height:100%;">
         <input value="Play" type="button" id="lightSwitch" onclick="toggleLightStatus();">
     </div> -->
+    <div class="zoekbalk">
+        <div class="wrap">
+            <div class="search">
+               <input type="text" class="searchTerm" placeholder="Zoeken...">
+               <button type="submit" class="searchButton">
+                 <i class="fa fa-search"></i>
+              </button>
+            </div>
+         </div>
+    </div>
     <div class="play">
         <input type="checkbox" id="playpause"  value="Play" onclick="toggleLightStatus();"/>
         <label for="playpause" id="play-pause-label" class="win-button"></label>
     </div>    
+    <input onchange="setVolume()" id="huts" class="slider" type="range" min="1" max="100" value="100"> 
     <script>
         //set variables
         let lightSwitch = document.getElementById("playpause");
@@ -43,7 +54,20 @@
                 .then(data => {
                 });
         }
+
+        function setVolume() { 
+            geluid = document.getElementById("huts").value;
+            console.log(geluid);
+            // vid.volume = geluid / 100;
+            fetch('volumeStatusUpdate.php?volume=' + geluid);
+                // .then(response => response.json())
+                // .then(data => {
+                // });
+        } 
+        
     </script>
+<script src="https://kit.fontawesome.com/2cc335b51d.js" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

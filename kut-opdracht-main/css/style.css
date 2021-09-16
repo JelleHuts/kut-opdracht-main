@@ -28,3 +28,138 @@ label {
   align-items: center;
   justify-content: center;
 }
+.zoekbalk {
+    width: 100%;
+    height: 70px;
+}
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+  width: 40%;
+  margin: auto;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 2px solid #08c25b;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+  margin-top: 20px;
+  margin-bottom: 100px;
+
+}
+.searchTerm:focus{
+  color: #08c25b;
+}
+.searchButton {
+  width: 40px;
+  height: 35px;
+  border: 1px solid #08c25b;
+  background: #08c25b;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+  margin-top: 20px;
+
+}
+.slider {
+    -webkit-appearance: none;
+    width: 80%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin-top: 100px;
+    text-align: center;
+    margin-left: 10%;
+  }
+  
+  .slider:hover {
+    opacity: 1;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #08c25b;
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #08c25b;
+    cursor: pointer;
+  }
+@media only screen and (max-width: 600px) {
+    .search {
+        width: 100%;
+    }
+    .searchTerm{
+        margin-top: 0px;
+        border-radius: 0;
+        height: 30px;
+        border-left: none;
+        border-top: none;
+    }
+    .searchButton {
+        margin-top: 0px;
+        border-radius: 0;
+        height: 42px;
+    }
+    .zoekbalk {
+        height: auto;
+    }
+
+}
+
+/* <!DOCTYPE html> 
+<html> 
+<body> 
+
+<button  type="button">What is the volume?</button>
+<input onchange="getVolume()" id="huts" type="range" min="1" max="100" value="100"> 
+
+<video id="myVideo" width="320" height="176" controls>
+  <source src="mov_bbb.mp4" type="video/mp4">
+  <source src="mov_bbb.ogg" type="video/ogg">
+  Your browser does not support HTML5 video.
+</video>
+
+<script>
+var vid = document.getElementById("myVideo");
+
+function getVolume() { 
+	geluid = document.getElementById("huts").value;
+  vid.volume = geluid / 100;
+} 
+  
+function setHalfVolume() { 
+  vid.volume = 0.2;
+} 
+  
+function setFullVolume() { 
+  vid.volume = 1.0;
+} 
+</script> 
+
+<p>Video courtesy of <a href="https://www.bigbuckbunny.org/" target="_blank">Big Buck Bunny</a>.</p>
+
+</body> 
+</html> */
+

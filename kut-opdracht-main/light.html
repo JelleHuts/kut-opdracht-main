@@ -9,6 +9,9 @@
 </head>
 
 <body style="width:100%; height:100%; margin: 0;">
+    <audio id="light" src="audio/bensound-onceagain.mp3" controls></audio>
+
+
     <script>
         //poll counter
         let pollCounter = 0;
@@ -23,7 +26,6 @@
                     //set the backgroundColor of the page based on the value of lightStatus in lightStatus.txt
                     if (data.lightStatus == 1) {
                         document.getElementById("light").play();
-                        
                     } else {
                         document.getElementById("light").pause();
                     }
@@ -32,9 +34,28 @@
                 });
         }
         lightStatusRead();
+
+
+        function verander() {
+            fetch('volumeStatusRead.php')
+                .then(response => response.json())
+                .then(data => {
+                    //show poll count in console
+                    console.log("pollCounter"+pollCounter);
+                    pollCounter++;
+                    //set the backgroundColor of the page based on the value of lightStatus in lightStatus.txt
+                    var vid = document.getElementById("light");
+
+                    vid.volume = data.volume / 100;
+                    
+                    setTimeout(verander, 500);
+                });
+        }
+        verander();
+        
     </script>
 
-    <audio id="light" src="audio/bensound-onceagain.mp3" controls></audio>
+    
 </body>
 
 </html>
