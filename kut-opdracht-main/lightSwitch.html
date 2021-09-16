@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" style="width:100%; height:100%;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lightSwitch</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body style="width:100%; height:100%; margin: 0;">
+    <!-- <div style="display:flex; justify-content: center; align-items: center;width:100%; height:100%;">
+        <input value="Play" type="button" id="lightSwitch" onclick="toggleLightStatus();">
+    </div> -->
+    <div class="play">
+        <input type="checkbox" id="playpause"  value="Play" onclick="toggleLightStatus();"/>
+        <label for="playpause" id="play-pause-label" class="win-button"></label>
+    </div>    
+    <script>
+        //set variables
+        let lightSwitch = document.getElementById("playpause");
+        let lightStatus;
+        //disabled lightSwitch
+        playpause.checked = true;
+        //read lightStatus and enable playpause if data is available
+        fetch('lightStatusRead.php')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                lightStatus = data.lightStatus;
+            });
+
+        //update the lightStatus value in the lightStatus.txt file using lightStatusUpdate.php and a queryString
+        function toggleLightStatus() {
+            if (lightStatus == 1) {
+                lightStatus = 0;
+            } else {
+                lightStatus = 1;
+            }
+            fetch('lightStatusUpdate.php?lightStatus=' + lightStatus)
+                .then(response => response.json())
+                .then(data => {
+                });
+        }
+    </script>
+</body>
+
+</html>
